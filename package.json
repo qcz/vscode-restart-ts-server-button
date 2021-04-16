@@ -1,0 +1,58 @@
+{
+	"name": "restart-ts-server-button",
+	"displayName": "Restart TS server Status Bar button",
+	"description": "The Restart TS server button on your Status Bar you didn't know you need.",
+	"keywords": [
+		"typescript",
+		"ts server",
+		"tsserver",
+		"restart"
+	],
+	"version": "1.0.0",
+	"publisher": "qcz",
+	"private": true,
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/qcz/vscode-restart-ts-server-button.git"
+	},
+	"bugs": {
+		"url": "https://github.com/qcz/vscode-restart-ts-server-button/issues"
+	},
+	"categories": [
+		"Programming Languages",
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#1e415e",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./dist/extension",
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.32.0",
+		"ts-loader": "^8.0.1",
+		"tslint": "^5.20.1",
+		"typescript": "^3.9.7",
+		"webpack": "^4.44.0",
+		"webpack-cli": "^3.3.12"
+	},
+	"dependencies": {
+		"vscode-test": "^1.4.0"
+	}
+}

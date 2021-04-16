@@ -1,0 +1,7 @@
+out
+node_modules
+.vscode-test/
+dist/
+*.vsix
+*.zip
+TODO.md
