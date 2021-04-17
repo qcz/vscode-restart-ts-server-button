@@ -4,6 +4,8 @@ The TypeScript Language Server becomes slow over long period of usage and someti
 
 ![Button preview](images/button.png)
 
+Inspired by the [Restart Your TS Server](https://github.com/HearTao/restart-your-ts-server) extension, which does the same for touch bars.
+
 Availability:
 * **VS Code Marketplace:** https://marketplace.visualstudio.com/items?itemName=qcz.restart-ts-server-button
 * **OpenVSX:** https://open-vsx.org/extension/qcz/restart-ts-server-button
