@@ -10,7 +10,7 @@
 		"restart tsserver",
 		"restart ts server"
 	],
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
