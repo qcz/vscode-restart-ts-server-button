@@ -14,7 +14,7 @@
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
-		"vscode": "^1.41.0"
+		"vscode": "^1.75.0"
 	},
 	"license": "SEE LICENSE IN LICENSE.md",
 	"icon": "images/icon.png",
