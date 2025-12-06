@@ -3,7 +3,17 @@ import * as vscode from "vscode";
 
 let restartTsServerStatusBarItem: vscode.StatusBarItem;
 
-const TYPESCRIPT_EXTENSION_ID = 'vscode.typescript-language-features';
+const typeScriptExtensions = [
+	{
+		extensionId: "vscode.typescript-language-features",
+		restartCommandId: "typescript.restartTsServer"
+	},
+	{
+		extensionId: "TypeScriptTeam.native-preview",
+		restartCommandId: "typescript.native-preview.restart"
+	}
+];
+
 const RESTART_TS_SERVER_LABEL = "$(debug-restart) Restart TS server";
 
 const SUPPORTED_LANGUAGES = [
@@ -32,13 +42,17 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 async function softRestartTsServer() {
-	const typeScriptExtension = vscode.extensions.getExtension(TYPESCRIPT_EXTENSION_ID);
-	if (!typeScriptExtension || typeScriptExtension.isActive === false) {
-		vscode.window.showErrorMessage("TypeScript extension is not active or not running.");
-		return;
+	const commands = await vscode.commands.getCommands(true);
+
+	for (const extensionData of typeScriptExtensions) {
+		const stradaTypeScriptExtension = vscode.extensions.getExtension(extensionData.extensionId);
+		if (stradaTypeScriptExtension?.isActive && commands.includes(extensionData.restartCommandId)) {
+			await vscode.commands.executeCommand(extensionData.restartCommandId);
+			return;
+		}
 	}
 
-	await vscode.commands.executeCommand("typescript.restartTsServer");
+	vscode.window.showErrorMessage("No TypeScript extension is active or running.");
 }
 
 function updateStatusBarItemVisibility(): void {
@@ -54,6 +68,6 @@ function updateStatusBarItemVisibility(): void {
 	}
 }
 
-// this method is called when your extension is deactivated
+// This method is called when your extension is deactivated
 export function deactivate() {
 }
